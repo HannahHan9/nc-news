@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <div className="home">
       <h1>Welcome to NC News. You are logged in as Hannah.</h1>
-      <nav></nav>
+      <nav>Home     Articles    </nav>
       <form>
         <label htmlFor="articleInput"></label>
         <input id="usernameInput"></input>
