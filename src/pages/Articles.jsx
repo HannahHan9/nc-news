@@ -38,10 +38,9 @@ const Articles = () => {
               comment_count,
             }) => {
               return (
-                <li key={articles.article_id}>
+                <li key={article_id}>
                   <Link to={`/articles/${article_id}`}>
                     <ArticleCard
-                      key={article_id}
                       title={title}
                       author={author}
                       topic={topic}

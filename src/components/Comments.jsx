@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { getArticleById, getCommentsByArticleId } from "../utils/api";
+import { getCommentsByArticleId } from "../utils/api";
 import { useState, useEffect } from "react";
 import CommentCard from "./CommentCard";
 
@@ -26,7 +26,7 @@ const Comments = () => {
         <ul>
           {comments.map(({ body, votes, author, article_id, created_at }) => {
             return (
-              <li key={comments.article_id}>
+              <li key={created_at}>
                 <CommentCard
                   body={body}
                   votes={votes}
