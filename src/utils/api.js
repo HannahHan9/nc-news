@@ -12,7 +12,12 @@ export const getArticles = () => {
 
 export const getArticleById = (article_id) => {
   return ncNews.get(`/articles/${article_id}`).then(({ data }) => {
-    console.log(data);
     return data.article;
+  });
+};
+
+export const getCommentsByArticleId = (article_id) => {
+  return ncNews.get(`/articles/${article_id}/comments`).then(({ data }) => {
+    return data.comments;
   });
 };

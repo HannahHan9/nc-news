@@ -15,6 +15,7 @@ const Articles = () => {
         setIsLoading(false);
       })
       .catch((err) => {
+        setIsLoading(false);
         setIsError(true);
         console.log("something is not right", err);
       });
@@ -24,7 +25,7 @@ const Articles = () => {
   } else {
     return (
       <section id="articlesContainer">
-        <ul key={articles}>
+        <ul>
           {articles.map(
             ({
               article_id,
@@ -37,19 +38,19 @@ const Articles = () => {
               comment_count,
             }) => {
               return (
-                <Link to={`/articles/${article_id}`}>
-                  <ArticleCard
-                    id="articleCard"
-                    key={article_id}
-                    title={title}
-                    author={author}
-                    topic={topic}
-                    created_at={created_at}
-                    votes={votes}
-                    article_img_url={article_img_url}
-                    comment_count={comment_count}
-                  />
-                </Link>
+                <li key={article_id}>
+                  <Link to={`/articles/${article_id}`}>
+                    <ArticleCard
+                      title={title}
+                      author={author}
+                      topic={topic}
+                      created_at={created_at}
+                      votes={votes}
+                      article_img_url={article_img_url}
+                      comment_count={comment_count}
+                    />
+                  </Link>
+                </li>
               );
             }
           )}
