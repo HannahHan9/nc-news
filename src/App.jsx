@@ -1,13 +1,20 @@
 import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/Home";
+import Nav from "./components/Nav";
 import Articles from "./pages/Articles";
-import ArticleSearch from "./components/ArticleSearch"
+import SingleArticle from "./pages/SingleArticle";
 
 function App() {
   return (
-    <div>
-      <Articles />
+    <div className="App">
+      <Nav />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/articles" element={<Articles />} />
+        <Route path="/articles/:article_id" element={<SingleArticle />} />
+      </Routes>
     </div>
   );
 }
