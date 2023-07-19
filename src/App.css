@@ -1,0 +1,13 @@
+#articleImg {
+    width: 100%;
+}
+
+.articleCard {
+    width: 80%;
+}
+
+@media only screen and (max-width: 600px) {
+    .articleCard {
+        width: 600px;
+    }
+}

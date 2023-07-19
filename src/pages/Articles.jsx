@@ -1,34 +1,62 @@
 import { useState, useEffect } from "react";
 import ArticleCard from "../components/ArticleCard";
 import { getArticles } from "../utils/api";
+import { Link } from "react-router-dom";
 
 const Articles = () => {
   const [articles, setArticles] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
 
   useEffect(() => {
-    getArticles().then((articleData) => {
-      console.log(articleData);
-      setArticles(articleData)
-    });
+    getArticles()
+      .then((articleData) => {
+        setArticles(articleData);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setIsError(true);
+        console.log("something is not right", err);
+      });
   }, []);
-  return (
-    <section>
-      <h1 className="header">
-        Welcome to NC News. You are logged in as Hannah.
-      </h1>
-      <nav>Home Articles</nav>
-      {articles.map(({ article_id, article_img_url, title, author }) => {
-        return (
-          <ArticleCard
-            key={article_id}
-            title={title}
-            author={author}
-            article_img_url={article_img_url}
-          />
-        );
-      })}
-    </section>
-  );
+  if (isLoading) {
+    return "is loading";
+  } else {
+    return (
+      <section id="articlesContainer">
+        <ul key={articles}>
+          {articles.map(
+            ({
+              article_id,
+              article_img_url,
+              title,
+              author,
+              topic,
+              created_at,
+              votes,
+              comment_count,
+            }) => {
+              return (
+                <Link to={`/articles/${article_id}`}>
+                  <ArticleCard
+                    id="articleCard"
+                    key={article_id}
+                    title={title}
+                    author={author}
+                    topic={topic}
+                    created_at={created_at}
+                    votes={votes}
+                    article_img_url={article_img_url}
+                    comment_count={comment_count}
+                  />
+                </Link>
+              );
+            }
+          )}
+        </ul>
+      </section>
+    );
+  }
 };
 
 export default Articles;
