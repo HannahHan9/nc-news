@@ -18,8 +18,12 @@ const Comments = () => {
         setIsError(true);
       });
   }, []);
+
+  if (comments.length === 0 && !isLoading) {
+    return <p>No comments to show - why not be the first to add one?</p>;
+  }
   if (isLoading) {
-    return "is loading";
+    return "Loading...";
   } else {
     return (
       <section>

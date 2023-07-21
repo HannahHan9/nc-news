@@ -21,3 +21,18 @@ export const getCommentsByArticleId = (article_id) => {
     return data.comments;
   });
 };
+
+export const patchArticleById = (article_id) => {
+  if (votes === 0) {
+    const patchVote = {
+      inc_votes: 1,
+    };
+  } else {
+    const patchVote = {
+      inc_votes: -1,
+    };
+  }
+  return ncNews.patch(`/articles/${article_id}`, patchVote).then(({ data }) => {
+    return data.article;
+  });
+};
