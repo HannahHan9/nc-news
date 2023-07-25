@@ -22,15 +22,16 @@ export const getCommentsByArticleId = (article_id) => {
   });
 };
 
-export const patchArticleById = (article_id) => {
+export const patchArticleById = (article_id, votes) => {
+
+  // I got an advice to
+  const patchVote = {
+    inc_votes: 0
+  }
   if (votes === 0) {
-    const patchVote = {
-      inc_votes: 1,
-    };
+    patchVote.inc_votes = -1
   } else {
-    const patchVote = {
-      inc_votes: -1,
-    };
+    patchVote.inc_votes = 1
   }
   return ncNews.patch(`/articles/${article_id}`, patchVote).then(({ data }) => {
     return data.article;

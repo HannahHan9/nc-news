@@ -9,6 +9,8 @@ const SingleArticle = () => {
   const [singleArticle, setSingleArticle] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [vote, setVote] = useState(0);
+  const [isError, setIsError] = useState(false);
+  const [isPatchError, setIsPatchError] = useState(false);
 
   useEffect(() => {
     getArticleById(article_id)
@@ -24,20 +26,23 @@ const SingleArticle = () => {
 
   const handleClick = () => {
     setVote((currVotes) => {
+      let addVote = 0;
       if (currVotes === 0) {
-        return currVotes +1
+        addVote = currVotes + 1;
       } else {
-      return currVotes - 1;
+        addVote = currVotes - 1;
       }
-    });
-    patchArticleById(article_id).catch((err) => {
-      setVote((currVotes) => {
-        return currVotes - 1;
+      patchArticleById(article_id, addVote).catch((err) => {
+        setIsPatchError(true);
+        setVote((currVotes) => {
+          return currVotes - 1;
+        });
       });
+      return addVote;
     });
   };
 
-  if (isLoading) return <p>is Loading...</p>;
+  if (isLoading) return <p>Loading...</p>;
   return (
     <section>
       <img id="articleImg" src={singleArticle.article_img_url} />
@@ -50,10 +55,13 @@ const SingleArticle = () => {
         <p id="articleCreatedAt">
           {moment(singleArticle.created_at).format("LLL")}
         </p>
+        <p>{isPatchError ? "Oops, something went wrong." : ""}</p>
         <p id="articleVotes">Votes: {singleArticle.votes + vote}</p>
-        <button onClick={handleClick}>{vote === 0 ? <p>Vote</p> : <p>Undo</p>}</button>
+        <button onClick={handleClick}>
+          {vote === 0 ? <p>Vote</p> : <p>Undo</p>}
+        </button>
         <p id="articleBody">{singleArticle.body}</p>
-        <p id="articleCommentCount">{singleArticle.comment_count}</p>
+        <p id="articleCommentCount">{ singleArticle.comment_count}</p>
       </article>
       <Comments />
       {/* comment.length  */}
