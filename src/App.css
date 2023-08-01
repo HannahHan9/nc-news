@@ -11,3 +11,8 @@
         width: 600px;
     }
 }
+
+.no-bullets {
+    list-style: none;
+    padding: 17%;
+}

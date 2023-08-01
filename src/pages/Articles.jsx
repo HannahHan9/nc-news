@@ -25,7 +25,7 @@ const Articles = () => {
   } else {
     return (
       <section id="articlesContainer">
-        <ul>
+        <ul className="no-bullets">
           {articles.map(
             ({
               article_id,
