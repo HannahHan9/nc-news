@@ -1,9 +1,7 @@
-import { useState } from "react";
-
 const Home = () => {
   return (
-    <div className="Home">
-      
+    <div>
+      <img src="../image/welcome" />
     </div>
   );
 };

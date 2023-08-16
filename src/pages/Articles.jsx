@@ -21,11 +21,11 @@ const Articles = () => {
       });
   }, []);
   if (isLoading) {
-    return "is loading";
+    return "Loading...";
   } else {
     return (
       <section id="articlesContainer">
-        <ul>
+        <ul className="no-bullets">
           {articles.map(
             ({
               article_id,
