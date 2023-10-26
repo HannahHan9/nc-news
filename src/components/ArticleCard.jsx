@@ -8,7 +8,11 @@ const ArticleCard = ({
 }) => {
     return (
         <section className="article-card">
-            <img src={article_img_url} alt={`relevant image for ${title}`} />
+            <img
+                src={article_img_url}
+                alt={`relevant image for ${title}`}
+                className="article-img"
+            />
             <h2>{title}</h2>
             <p>by {author}</p>
             <p>{comment_count} Comments </p>

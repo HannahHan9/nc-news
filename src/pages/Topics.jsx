@@ -30,12 +30,10 @@ const Topics = () => {
                     {topics.map(({ slug, description }) => {
                         return (
                             <li key={slug} className="topic-card">
-                                <Link to={`/topics`}>
-                                    <TopicCard
-                                        slug={slug}
-                                        description={description}
-                                    />
-                                </Link>
+                                <TopicCard
+                                    slug={slug}
+                                    description={description}
+                                />
                             </li>
                         );
                     })}

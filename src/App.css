@@ -3,17 +3,24 @@
 }
 
 .articleCard {
-    width: 80%;
+    max-width: 100%;
 }
 
-@media only screen and (max-width: 600px) {
+/* @media only screen and (max-width: 600px) {
     .articleCard {
         width: 600px;
     }
+} */
+
+.article-img {
+    width: 100%;
+    border-radius: 
 }
 
 ul {
     list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
 .navbar {
@@ -37,10 +44,18 @@ ul {
     border: 2px solid red;
     border-radius: 8px;
     padding: 5px;
+    margin: 10px;
 }
 
 .article-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    gap: 25px;
+    max-width: 100%;
+}
+
+@media (max-width: 800px) {
+    .article-grid {
+        grid-template-columns: 1fr;
+    }
 }

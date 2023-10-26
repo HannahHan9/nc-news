@@ -25,7 +25,7 @@ const Articles = () => {
     } else {
         return (
             <section id="articlesContainer">
-                <ul>
+                <ul className="article-grid">
                     {articles.map(
                         ({
                             article_id,
@@ -39,7 +39,7 @@ const Articles = () => {
                         }) => {
                             return (
                                 <li key={article_id}>
-                                    <Link to={`/articles/${article_id}`} className="article-grid">
+                                    <Link to={`/articles/${article_id}`}>
                                         <ArticleCard
                                             title={title}
                                             author={author}
