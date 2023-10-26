@@ -32,3 +32,15 @@ ul {
 .home-image {
     font-size: 1.4rem;
 }
+
+.topic-card {
+    border: 2px solid red;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+.article-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}

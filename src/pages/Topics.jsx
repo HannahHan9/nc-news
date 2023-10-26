@@ -2,6 +2,7 @@ import { getTopics } from "../utils/api";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import TopicCard from "../components/TopicCard";
+import "../App.css";
 
 const Topics = () => {
     const [topics, setTopics] = useState([]);
@@ -28,7 +29,7 @@ const Topics = () => {
                 <ul>
                     {topics.map(({ slug, description }) => {
                         return (
-                            <li key={slug}>
+                            <li key={slug} className="topic-card">
                                 <Link to={`/topics`}>
                                     <TopicCard
                                         slug={slug}

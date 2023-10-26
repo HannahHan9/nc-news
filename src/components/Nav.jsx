@@ -9,10 +9,8 @@ const Nav = () => {
                     <AiOutlineHome className="home-image" />
                 </Link>
                 <Link to={"/topics"}>Topics</Link>
+                <Link to={"/newarticle"}>Post an article</Link>
             </nav>
-            <h2 className="welcome-message">
-                Welcome to NC News. You are logged in as Hannah.
-            </h2>
         </>
     );
 };

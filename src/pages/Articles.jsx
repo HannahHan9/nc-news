@@ -39,7 +39,7 @@ const Articles = () => {
                         }) => {
                             return (
                                 <li key={article_id}>
-                                    <Link to={`/articles/${article_id}`}>
+                                    <Link to={`/articles/${article_id}`} className="article-grid">
                                         <ArticleCard
                                             title={title}
                                             author={author}
