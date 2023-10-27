@@ -27,3 +27,20 @@ export const getTopics = () => {
         return data.topics;
     });
 };
+
+export const postArticle = async (
+    author,
+    title,
+    body,
+    topic,
+    article_img_url
+) => {
+    const res = await ncNews.post(`/articles/`, {
+        author: author,
+        title: title,
+        body: body,
+        topic: topic,
+        article_img_url: article_img_url,
+    });
+    return res.data.article;
+};
