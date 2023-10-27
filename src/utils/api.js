@@ -28,6 +28,11 @@ export const getTopics = () => {
     });
 };
 
+export const getUsers = async () => {
+    const res = await ncNews.get(`/users`);
+    return res.data.users;
+};
+
 export const postArticle = async (
     author,
     title,
@@ -43,4 +48,12 @@ export const postArticle = async (
         article_img_url: article_img_url,
     });
     return res.data.article;
+};
+
+export const postComment = async (article_id, username, comment) => {
+    const res = await ncNews.post(`/articles/${article_id}/comments`, {
+        username: username,
+        body: comment,
+    });
+    return res.data.comment;
 };
