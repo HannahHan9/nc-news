@@ -1,8 +1,8 @@
-const { useState, useContext, useEffect } = require("react");
+import { useState, useContext, useEffect } from "react";
+import { UserContext } from "../contexts/User";
 import { toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
-import { postArticle, getTopics } from "../api";
-import Loading from "./Loading";
+import { postArticle, getTopics } from "../utils/api";
 
 const AddArticle = () => {
     const { user } = useContext(UserContext);
