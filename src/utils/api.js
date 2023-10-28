@@ -4,10 +4,21 @@ const ncNews = axios.create({
     baseURL: "https://nc-news-49cb.onrender.com/api",
 });
 
-export const getArticles = () => {
-    return ncNews.get(`/articles`).then(({ data }) => {
-        return data.articles;
+export const getArticles = async (topic, sortby, order) => {
+    const params = {
+        sort_by: sortby,
+        order: order,
+    };
+    if (topic) {
+        params.topic = topic;
+    }
+    // if (author) {
+    //     params.author = author;
+    // }
+    const res = await ncNews.get(`/articles`, {
+        params: params,
     });
+    return res.data.articles;
 };
 
 export const getArticleById = (article_id) => {

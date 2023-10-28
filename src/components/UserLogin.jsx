@@ -21,7 +21,7 @@ const UserLogin = () => {
     const handleClick = (event) => {
         const newUserName = event.target.innerText;
         const newUser = users.find((user) => user.username === newUserName);
-        setUser(newUser);
+        setUser({ user: newUser.username });
         navigate(-1);
     };
 

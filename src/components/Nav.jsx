@@ -10,6 +10,7 @@ const Nav = () => {
                 </Link>
                 <Link to={"/topics"}>Topics</Link>
                 <Link to={"/newarticle"}>Post an article</Link>
+                <Link to={"/users"}>Login</Link>
             </nav>
         </>
     );

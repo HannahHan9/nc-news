@@ -6,6 +6,7 @@ import Articles from "./pages/Articles";
 import SingleArticle from "./pages/SingleArticle";
 import Topics from "./pages/Topics";
 import AddArticle from "./components/AddArticle";
+import UserLogin from "./components/UserLogin";
 
 function App() {
     return (
@@ -19,6 +20,8 @@ function App() {
                     element={<SingleArticle />}
                 />
                 <Route path="newarticle" element={<AddArticle />} />
+                <Route path="/users" element={<UserLogin />} />
+                <Route path="/topics/:topic" element={<Articles />} />
             </Routes>
         </div>
     );
