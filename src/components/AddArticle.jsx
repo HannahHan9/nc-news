@@ -6,6 +6,7 @@ import { postArticle, getTopics } from "../utils/api";
 
 const AddArticle = () => {
     const { user } = useContext(UserContext);
+    console.log(user.user);
     const [input, setInput] = useState({
         author: null,
         title: "",
@@ -83,21 +84,21 @@ const AddArticle = () => {
         };
         if (article) {
             addArticle(
-                user.username,
+                user.user,
                 article.title,
                 article.body,
                 article.topic,
                 article.article_img_url
             );
         }
-    }, [article, navigate, user.username]);
+    }, [article, navigate, user]);
 
     useEffect(() => {
         const fetchTopics = async () => {
             try {
                 const res = await getTopics();
                 setTopics(res);
-                setIsLoading(flase);
+                setIsLoading(false);
             } catch (err) {
                 console.log(err);
             }
@@ -109,7 +110,7 @@ const AddArticle = () => {
         return "is loading";
     }
 
-    if (!user.username)
+    if (!user.user)
         return (
             <div>
                 <p>
@@ -120,7 +121,7 @@ const AddArticle = () => {
 
     return (
         <main>
-            <header>Post an article</header>
+            <h1>Post an article</h1>
             <form onSubmit={handleSubmit} />
             <label htmlFor="article-title">Title:</label>
             <span>Max 85 Characters</span>
