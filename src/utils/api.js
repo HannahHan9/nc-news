@@ -21,16 +21,14 @@ export const getArticles = async (topic, sortby, order) => {
     return res.data.articles;
 };
 
-export const getArticleById = (article_id) => {
-    return ncNews.get(`/articles/${article_id}`).then(({ data }) => {
-        return data.article;
-    });
+export const getArticleById = async (article_id) => {
+    const res = await ncNews.get(`/articles/${article_id}`);
+    return res.data.article;
 };
 
-export const getCommentsByArticleId = (article_id) => {
-    return ncNews.get(`/articles/${article_id}/comments`).then(({ data }) => {
-        return data.comments;
-    });
+export const getCommentsByArticleId = async (article_id) => {
+    const res = await ncNews.get(`/articles/${article_id}/comments`);
+    return res.data.comments;
 };
 
 export const getTopics = () => {

@@ -22,7 +22,7 @@ const Topics = () => {
             });
     }, []);
     if (isLoading) {
-        return "is loading";
+        return "Loading...";
     } else {
         return (
             <section id="topicsContainer">

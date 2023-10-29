@@ -15,7 +15,7 @@ const TopicList = () => {
         fetchTopics();
     }, []);
 
-    if (isLoading) return "is loading";
+    if (isLoading) return "Loading...";
 
     return (
         <main>

@@ -107,7 +107,7 @@ const AddArticle = () => {
     }, []);
 
     if (isLoading) {
-        return "is loading";
+        return "Loading...";
     }
 
     if (!user.user)

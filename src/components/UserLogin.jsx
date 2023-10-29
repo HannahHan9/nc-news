@@ -25,7 +25,7 @@ const UserLogin = () => {
         navigate(-1);
     };
 
-    if (isLoading) return <p>is Loading...</p>;
+    if (isLoading) return <p>Loading...</p>;
 
     return (
         <main>

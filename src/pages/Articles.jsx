@@ -54,7 +54,7 @@ const Articles = () => {
     //   CSS
 
     if (isLoading) {
-        return "is loading";
+        return "Loading...";
     } else {
         return (
             <>
