@@ -1,11 +1,11 @@
 .article-img {
-    max-width: 80%;
-    margin: 20px;
-    justify-content: center;
+        max-width: 80%;
+        margin: 20px;
+        justify-content: center;
 }
 
 .articleCard {
-    max-width: 100%;
+        max-width: 100%;
 }
 
 /* @media only screen and (max-width: 600px) {
@@ -15,72 +15,72 @@
 } */
 
 .article-img {
-    width: 100%;
-    border-radius: ;
+        width: 100%;
+        border-radius: 10px;
 }
 
 ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
 }
 
 .navbar {
-    display: flex;
-    gap: 10px;
-    margin: 20px;
-    justify-items: center;
-    width: 100vw;
-    align-items: center;
+        display: flex;
+        gap: 10px;
+        margin: 20px;
+        justify-items: center;
+        width: 100vw;
+        align-items: center;
 }
 
 .welcome-message {
-    margin: 20px;
+        margin: 20px;
 }
 
 .home-image {
-    font-size: 1.4rem;
+        font-size: 1.4rem;
 }
 
 .topic-card {
-    border: 2px solid red;
-    border-radius: 8px;
-    padding: 5px;
-    margin: 10px;
+        border: 2px solid red;
+        border-radius: 8px;
+        padding: 5px;
+        margin: 10px;
 }
 
 .article-grid {
-    list-style-type: none;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: masonry;
-    gap: 1em;
-    max-width: 100%;
-    padding: 0;
-    margin-top: 1em;
-    width: 95%;
-    justify-items: center;
+        list-style-type: none;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: masonry;
+        gap: 1em;
+        max-width: 100%;
+        padding: 0;
+        margin-top: 1em;
+        width: 95%;
+        justify-items: center;
 
-    /* display: grid;
+        /* display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 25px;
     max-width: 100%; */
 }
 
 @media (max-width: 800px) {
-    .article-grid {
-        grid-template-columns: 1fr;
-    }
+        .article-grid {
+                grid-template-columns: 1fr;
+        }
 }
 
 .comment-container {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1em;
-    justify-items: start;
-    margin-bottom: 2em;
-    width: 100%;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1em;
+        justify-items: start;
+        margin-bottom: 2em;
+        width: 100%;
 }
