@@ -2,23 +2,21 @@ import { useParams } from "react-router-dom";
 import { getArticleById, patchArticle, getUser } from "../utils/api";
 import { useState, useContext, useEffect } from "react";
 import Comments from "../components/Comments";
-import { Link, useNavigate } from "react-router-dom";
+// import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../contexts/User";
 import { formatDate } from "../utils/formatDate";
-
-
 
 const SingleArticle = () => {
         const { article_id } = useParams();
         const [singleArticle, setSingleArticle] = useState({});
         const [isLoading, setIsLoading] = useState(true);
         const [error, setError] = useState(null);
-        const [commentSubmit, setCommentSubmit] = useState(false);
-        const [authorImg, setAuthorImg] = useState("");
-        const [voteCount, setVoteCount] = useState(0);
-        const [upVoteClicked, setUpVoteClicked] = useState(false);
-        const [downVoteClicked, setDownVoteClicked] = useState(false);
-        const { user } = useContext(UserContext);
+        // const [commentSubmit, setCommentSubmit] = useState(false);
+        // const [authorImg, setAuthorImg] = useState("");
+        // const [voteCount, setVoteCount] = useState(0);
+        // const [upVoteClicked, setUpVoteClicked] = useState(false);
+        // const [downVoteClicked, setDownVoteClicked] = useState(false);
+        // const { user } = useContext(UserContext);
 
         useEffect(() => {
                 getArticleById(article_id)
@@ -33,7 +31,7 @@ const SingleArticle = () => {
         }, []);
 
         if (isLoading) return <p>Loading...</p>;
-        if (error) return <p>Sorry, something went wrong...</p>;
+        // if (error) return <p>Sorry, something went wrong...</p>;
         return (
                 <section>
                         <img
@@ -51,7 +49,7 @@ const SingleArticle = () => {
                                         By {singleArticle.author}
                                 </p>
                                 <p id="articleCreatedAt">
-                                        {singleArticle.created_at}
+                                        {singleArticle.formatDate(created_at)}
                                 </p>
                                 <p id="articleBody">{singleArticle.body}</p>
                                 <p id="articleVotes">{singleArticle.votes}</p>
